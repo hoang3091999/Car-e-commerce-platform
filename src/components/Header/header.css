@@ -1,0 +1,78 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+.out-side-nav-bar {
+  width: 1440;
+  height: 54;
+  padding-top: 7px;
+  padding-right: 200px;
+  padding-bottom: 7px;
+  padding-left: 200px;
+  gap: 90px;
+  opacity: 1;
+  background-color: #12232e;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  background-color: #12232e;
+}
+.nav-bar .logo {
+  height: 32px;
+  width: 117px;
+}
+.logobox {
+  display: flex;
+  align-items: center;
+  margin-right: 90px;
+}
+.profileBox {
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  display: flex;
+  gap: 90px;
+  color: white;
+}
+.nav-links a{
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
+}
+.profileBox {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: white;
+}
+.profile img {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+}
+.language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.nav-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
