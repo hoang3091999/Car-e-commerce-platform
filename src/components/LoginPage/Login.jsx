@@ -1,7 +1,11 @@
 import { Form, Button, Checkbox, Input, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
+import Icon from "../../assets/icon.png";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import facebook_icon from "../../assets/facebook_icon.png";
+import instagram_icon from "../../assets/instagram_icon.png";
+import twitter_icon from "../../assets/youtube_icon.png";
 import "./login.css";
 const LoginPage = () => {
   const [form] = Form.useForm();
@@ -39,67 +43,93 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="page">
+    <>
       <Header />
-      <div className="content">
-        <Form
-          form={form}
-          name="Login"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          style={{ maxWidth: 600 }}
-          initialValues={{ remember: true }}
-          onFinish={onFinish}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Email"
-            name="username"
-            rules={[
-              { required: true, message: "Please enter your email!" },
-              {
-                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Please enter your email correctly!",
-              },
-            ]}
-          >
-            <Input placeholder="name@gmail.com" />
-          </Form.Item>
+      <div className="login-page">
+        <div className="login-wrapper">
+          <div className="login-left">
+            <Form
+              form={form}
+              className="login-form"
+              name="Login"
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              autoComplete="off"
+              layout="vertical"
+            >
+              <Form.Item
+                className="form-item-email"
+                label="Email"
+                name="username"
+                rules={[
+                  { required: true, message: "Please enter your email!" },
+                  {
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Please enter your email correctly!",
+                  },
+                ]}
+              >
+                <Input className="inputEmail" placeholder="name@gmail.com" />
+              </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              { required: true, message: "Please enter your password!" },
-              {
-                pattern:
-                  /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
-                message:
-                  "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
-              },
-            ]}
-          >
-            <Input.Password placeholder="password" />
-          </Form.Item>
+              <Form.Item
+                className="form-item-password"
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: "Please enter your password!" },
+                  {
+                    pattern:
+                      /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+                    message:
+                      "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
+                  },
+                ]}
+              >
+                <Input.Password className="inputPass" placeholder="password" />
+              </Form.Item>
 
-          <Form.Item name="remember" valuePropName="checked" label={null}>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+              <Form.Item
+                name="remember"
+                valuePropName="checked"
+                className="remember-item"
+                label={null}
+              >
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
 
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Login
-            </Button>
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              <Link to={"/SignUp"}>SignUp</Link>
-            </Button>
-          </Form.Item>
-        </Form>
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  Login
+                </Button>
+              </Form.Item>
+              <Form.Item className="resister-link">
+                <p>
+                  Don't have account yet?{" "}
+                  <Link to="/SignUp" className="forgot-pass-link">
+                    Sign Up here
+                  </Link>
+                </p>
+              </Form.Item>
+            </Form>
+          </div>
+          <div className="login-right">
+            <div className="brand-box">
+              <img src={Icon} className="icon-img" alt="" />
+              <h2>Login</h2>
+              <h3>Welcome to Autohunt</h3>
+              <div className="icon">
+                <img src={facebook_icon} alt="facebook" />
+                <img src={instagram_icon} alt="instagram" />
+                <img src={twitter_icon} alt="twitter" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
+
 export default LoginPage;

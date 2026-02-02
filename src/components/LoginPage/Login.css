@@ -1,17 +1,154 @@
-html, body, #root {
-  height: 100%;
-  margin: 0;
+.login-page {
+  min-height: 90vh;
+  background: radial-gradient(circle at top, #0e2230, #050505);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.page {
-  min-height: 100vh;
+.login-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px;
   display: flex;
-  flex-direction: column;
+  gap: 80px;
+  justify-content: center;
 }
-.content {
-  flex: 1; 
+
+.login-left {
+  width: 520px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 500px;
+}
+
+.login-form .ant-form-item-label > label {
+  color: #fff;
+}
+
+.inputEmail.ant-input,
+.inputPass.ant-input-affix-wrapper {
+  background-color: #132c3d;
+  border: 1px solid transparent;
+}
+
+.inputEmail.ant-input::placeholder,
+.inputPass input::placeholder {
+  color: #9bb3c7;
+}
+
+.inputEmail.ant-input:hover,
+.inputEmail.ant-input:focus,
+.inputPass.ant-input-affix-wrapper:hover,
+.inputPass.ant-input-affix-wrapper-focused {
+  background-color: #224b63;
+  box-shadow: 0 0 0 1px #1f90ff;
+  border-color: #1f90ff;
+}
+
+.inputPass input {
+  background: transparent;
+  color: #fff;
+}
+
+.login-form .ant-btn-primary {
+  height: 42px;
+  width: 100%;
+  background: #0a8fdc;
+  border: none;
+}
+
+.login-text {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.login-text a {
+  color: #0a8fdc;
+}
+
+.login-right {
+  width: 420px;
   display: flex;
-  justify-content: center; 
-  align-items: center;    
-  background: #fff;
+  justify-content: center;
+  background: #0e2634;
+}
+
+.brand-box {
+  width: 100%;
+  min-height: 285px;
+  background: #0e2634;
+  border: 2px solid #0a8fdc;
+  margin: 30px 30px;
+  text-align: center;
+}
+
+.brand-box .icon-img {
+  margin-top: 30px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.brand-box h2 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.brand-box h3 {
+  color: white;
+  margin-bottom: 24px;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+  color: white;
+  font-size: 18px;
+}
+.remember-item {
+  margin-bottom: 16px;
+}
+
+.remember-item .ant-form-item-control {
+  justify-content: flex-start;
+}
+
+.remember-item .ant-form-item-control-input {
+  min-height: auto;
+}
+
+.remember-item .ant-checkbox-wrapper {
+  margin-left: 0;
+  color: white;
+}
+.icon {
+  height: 40px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.icon img {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+.resister-link {
+  margin-top: -15px;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .login-wrapper {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
 }

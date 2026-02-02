@@ -1,6 +1,20 @@
-import { Form, Button, Input, message, Space, Select } from "antd";
+import {
+  ConfigProvider,
+  Form,
+  Button,
+  Input,
+  message,
+  Space,
+  Select,
+} from "antd";
 import { useNavigate } from "react-router";
-
+import facebook_icon from "../../assets/facebook_icon.png";
+import instagram_icon from "../../assets/instagram_icon.png";
+import twitter_icon from "../../assets/youtube_icon.png";
+import Icon from "../../assets/icon.png";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import "./signup.css";
 const SignUp = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
@@ -58,90 +72,128 @@ const SignUp = () => {
   };
 
   return (
-    <Form
-      form={form}
-      name="SignUp"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
-      onFinish={onFinish}
-    >
-      <Form.Item
-        label="Name"
-        name="name"
-        rules={[
-          {
-            required: true,
-            message: "Please enter your name",
-          },
-        ]}
-      >
-        <Input placeholder="Full name" />
-      </Form.Item>
-      <Form.Item
-        label="Email"
-        name="username"
-        rules={[
-          { required: true, message: "Please enter your email!" },
-          {
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: "Please enter your email correctly!",
-          },
-        ]}
-      >
-        <Input placeholder="name@gmail.com" />
-      </Form.Item>
-      <Form.Item label="Phone number">
-        <Space.Compact style={{ width: "100%" }}>
-          <Form.Item
-            name="countryCode"
-            noStyle
-            rules={[{ required: true, message: "Select code" }]}
-          >
-            <Select
-              style={{ width: "35%" }}
-              options={[
-                { label: "🇻🇳 +84", value: "+84" },
-                { label: "🇺🇸 +1", value: "+1" },
-                { label: "cn +86", value: "+86" },
-                { label: "kr +82", value: "+82" },
-                { label: "jb +81", value: "+81" },
-              ]}
-            />
-          </Form.Item>
-          <Form.Item
-            name="phone"
-            noStyle
-            rules={[
-              { required: true, message: "Enter phone number" },
-              { pattern: /^[0-9]{9,10}$/, message: "Invalid phone number" },
-            ]}
-          >
-            <Input placeholder="000-000-000" />
-          </Form.Item>
-        </Space.Compact>
-      </Form.Item>
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          { required: true, message: "Please enter your password!" },
-          {
-            pattern:
-              /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
-            message:
-              "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
-          },
-        ]}
-      >
-        <Input.Password placeholder="password" />
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Create My Account
-        </Button>
-      </Form.Item>
-    </Form>
+    <>
+      <Header />
+      <div className="auth-page">
+        <div className="auth-wrapper">
+          <div className="auth-left">
+            <Form
+              form={form}
+              name="SignUp"
+              onFinish={onFinish}
+              layout="vertical"
+            >
+              <Form.Item
+                label="Name"
+                name="name"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your name",
+                  },
+                ]}
+              >
+                <Input placeholder="Full name" />
+              </Form.Item>
+              <Form.Item
+                label="Email"
+                name="username"
+                rules={[
+                  { required: true, message: "Please enter your email!" },
+                  {
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Please enter your email correctly!",
+                  },
+                ]}
+              >
+                <Input placeholder="name@gmail.com" />
+              </Form.Item>
+              <Form.Item label="Phone number">
+                <Space.Compact style={{ width: "100%" }}>
+                  <Form.Item
+                    name="countryCode"
+                    noStyle
+                    rules={[{ required: true, message: "Select code" }]}
+                  >
+                    <ConfigProvider
+                      theme={{
+                        components: {
+                          Select: {
+                            colorBgContainer: "#0f2a3d", // nền select
+                            colorText: "#1677ff", // chữ
+                            colorBorder: "#1677ff", // viền
+                            colorTextPlaceholder: "#fff", // placeholder
+                          },
+                        },
+                      }}
+                    >
+                      <Select
+                        className="phone-select"
+                        style={{ width: "35%" }}
+                        dropdownStyle={{ backgroundColor: "#0f2a3a" }}
+                        options={[
+                          { label: "🇻🇳 +84", value: "+84" },
+                          { label: "🇺🇸 +1", value: "+1" },
+                          { label: "cn +86", value: "+86" },
+                          { label: "kr +82", value: "+82" },
+                          { label: "jb +81", value: "+81" },
+                        ]}
+                      />
+                    </ConfigProvider>
+                  </Form.Item>
+                  <Form.Item
+                    name="phone"
+                    noStyle
+                    rules={[
+                      { required: true, message: "Enter phone number" },
+                      {
+                        pattern: /^[0-9]{9,10}$/,
+                        message: "Invalid phone number",
+                      },
+                    ]}
+                  >
+                    <Input className="dark-input" placeholder="000-000-000" />
+                  </Form.Item>
+                </Space.Compact>
+              </Form.Item>
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: "Please enter your password!" },
+                  {
+                    pattern:
+                      /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+                    message:
+                      "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
+                  },
+                ]}
+              >
+                <Input.Password placeholder="password" />
+              </Form.Item>
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  Create My Account
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+          <div className="auth-right">
+            <div className="brand-box">
+              <img src={Icon} className="img-icon" alt="" />
+              <h2>Register</h2>
+              <h3>Welcome to Autohunt</h3>
+              <div className="icon">
+                <img src={facebook_icon} alt="facebook" />
+                <img src={instagram_icon} alt="instagram" />
+                <img src={twitter_icon} alt="twitter" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
