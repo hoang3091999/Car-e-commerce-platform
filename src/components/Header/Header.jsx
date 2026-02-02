@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import icon from "../../assets/icon.png";
 import user_icon from "../../assets/user_icon.png";
 import globe_icon from "../../assets/globe_icon.png";
 import "./header.css";
+import { use, useEffect, useState } from "react";
 
+const getFirstName = (fullName) => {
+  if (!fullName) return "";
+  return fullName.trim().split(" ").pop();
+  
+}
 const items = [
   {
     key: "1",
@@ -28,6 +34,13 @@ const lang = [
   },
 ];
 const Header = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const storedUser = localStorage.getItem("users");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
   return (
     <div className="out-side-nav-bar">
       <div className="nav-bar">
@@ -53,7 +66,19 @@ const Header = () => {
         <div className="profileBox">
           <div className="profile">
             <img src={user_icon} alt="user" />
-            <p>Sign in</p>
+            {user ? (
+              <>
+                <div className="nav-user">{getFirstName(user.name)}</div>
+                <span className="Log-out" onClick={() => {
+                  localStorage.removeItem("users");
+                  setUser(null);
+                }}>Log out</span>
+              </>
+            ) : (
+              <Link to="/Login" className="nav-login">
+                Sign In
+              </Link>
+            )}
           </div>
           <div className="language">
             <img src={globe_icon} alt="lang" />

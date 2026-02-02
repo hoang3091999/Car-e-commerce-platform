@@ -1,5 +1,5 @@
 import { Form, Button, Checkbox, Input, message } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Icon from "../../assets/icon.png";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,6 +9,7 @@ import twitter_icon from "../../assets/youtube_icon.png";
 import "./login.css";
 const LoginPage = () => {
   const [form] = Form.useForm();
+  const navigator = useNavigate();
   const onFinish = async (values) => {
     const username = values.username.trim().toLowerCase();
     const password = values.password;
@@ -36,6 +37,8 @@ const LoginPage = () => {
 
     if (validUser) {
       message.success("đăng nhập thành công");
+      navigator("/");
+      localStorage.setItem("users", JSON.stringify(validUser));
     } else {
       message.error("mật khẩu hoặc tài khoản chưa đúng hoặc chưa tồn tại");
       form.resetFields();

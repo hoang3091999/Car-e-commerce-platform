@@ -70,8 +70,22 @@ body,
   gap: 5px;
   white-space: nowrap;
 }
+.profile a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  font-weight: 500;
+}
 .nav-dropdown {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+.Log-out {
+  color: #fff;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
