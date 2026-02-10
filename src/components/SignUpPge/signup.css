@@ -49,12 +49,13 @@
   box-shadow: 0 0 0 1px #1f90ff;
 }
 
-/* Phone select */
 .auth-left .ant-select-selector {
   height: 40px;
   align-items: center;
 }
-
+.phone-select {
+  border : none !important;
+}
 /* ===== BUTTON ===== */
 .auth-left .ant-btn-primary {
   width: 100%;

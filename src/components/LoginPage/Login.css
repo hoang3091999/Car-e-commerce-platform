@@ -30,8 +30,9 @@
 
 .inputEmail.ant-input,
 .inputPass.ant-input-affix-wrapper {
-  background-color: #132c3d;
-  border: 1px solid transparent;
+  background-color: #132c3d !important;
+  border: 1px solid transparent !important;
+  color: #fff;
 }
 
 .inputEmail.ant-input::placeholder,

@@ -51,7 +51,7 @@ const Header = () => {
         </div>
 
         <div className="nav-links">
-          <Link to="/Newcars">New Cars</Link>
+          <Link to="/Newcar">New Cars</Link>
           <Link to="/UsedCars">Used Cars</Link>
           <Link to="/Compare">Compare</Link>
           <Link to="/Sell">Sell</Link>

@@ -15,6 +15,7 @@ import Icon from "../../assets/icon.png";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./signup.css";
+import { DownOutlined } from "@ant-design/icons";
 const SignUp = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
@@ -77,57 +78,60 @@ const SignUp = () => {
       <div className="auth-page">
         <div className="auth-wrapper">
           <div className="auth-left">
-            <Form
-              form={form}
-              name="SignUp"
-              onFinish={onFinish}
-              layout="vertical"
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorIcon: "#ffffff",
+                },
+                components: {
+                  Select: {
+                    colorBgContainer: "#0f2a3d", // nền select
+                    colorText: "#1677ff", // chữ
+                    colorTextPlaceholder: "#fff", // placeholder
+                  },
+                },
+              }}
             >
-              <Form.Item
-                label="Name"
-                name="name"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter your name",
-                  },
-                ]}
+              <Form
+                form={form}
+                name="SignUp"
+                onFinish={onFinish}
+                layout="vertical"
               >
-                <Input placeholder="Full name" />
-              </Form.Item>
-              <Form.Item
-                label="Email"
-                name="username"
-                rules={[
-                  { required: true, message: "Please enter your email!" },
-                  {
-                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "Please enter your email correctly!",
-                  },
-                ]}
-              >
-                <Input placeholder="name@gmail.com" />
-              </Form.Item>
-              <Form.Item label="Phone number">
-                <Space.Compact style={{ width: "100%" }}>
-                  <Form.Item
-                    name="countryCode"
-                    noStyle
-                    rules={[{ required: true, message: "Select code" }]}
-                  >
-                    <ConfigProvider
-                      theme={{
-                        components: {
-                          Select: {
-                            colorBgContainer: "#0f2a3d", // nền select
-                            colorText: "#1677ff", // chữ
-                            colorBorder: "#1677ff", // viền
-                            colorTextPlaceholder: "#fff", // placeholder
-                          },
-                        },
-                      }}
+                <Form.Item
+                  label="Name"
+                  name="name"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter your name",
+                    },
+                  ]}
+                >
+                  <Input placeholder="Full name" />
+                </Form.Item>
+                <Form.Item
+                  label="Email"
+                  name="username"
+                  rules={[
+                    { required: true, message: "Please enter your email!" },
+                    {
+                      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter your email correctly!",
+                    },
+                  ]}
+                >
+                  <Input placeholder="name@gmail.com" />
+                </Form.Item>
+                <Form.Item label="Phone number">
+                  <Space.Compact style={{ width: "100%" }}>
+                    <Form.Item
+                      name="countryCode"
+                      noStyle
+                      rules={[{ required: true, message: "Select code" }]}
                     >
                       <Select
+                        suffixIcon={<DownOutlined style={{ color: "#fff" }} />}
                         className="phone-select"
                         style={{ width: "35%" }}
                         dropdownStyle={{ backgroundColor: "#0f2a3a" }}
@@ -139,44 +143,44 @@ const SignUp = () => {
                           { label: "jb +81", value: "+81" },
                         ]}
                       />
-                    </ConfigProvider>
-                  </Form.Item>
-                  <Form.Item
-                    name="phone"
-                    noStyle
-                    rules={[
-                      { required: true, message: "Enter phone number" },
-                      {
-                        pattern: /^[0-9]{9,10}$/,
-                        message: "Invalid phone number",
-                      },
-                    ]}
-                  >
-                    <Input className="dark-input" placeholder="000-000-000" />
-                  </Form.Item>
-                </Space.Compact>
-              </Form.Item>
-              <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                  { required: true, message: "Please enter your password!" },
-                  {
-                    pattern:
-                      /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
-                    message:
-                      "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
-                  },
-                ]}
-              >
-                <Input.Password placeholder="password" />
-              </Form.Item>
-              <Form.Item>
-                <Button type="primary" htmlType="submit">
-                  Create My Account
-                </Button>
-              </Form.Item>
-            </Form>
+                    </Form.Item>
+                    <Form.Item
+                      name="phone"
+                      noStyle
+                      rules={[
+                        { required: true, message: "Enter phone number" },
+                        {
+                          pattern: /^[0-9]{9,10}$/,
+                          message: "Invalid phone number",
+                        },
+                      ]}
+                    >
+                      <Input className="dark-input" placeholder="000-000-000" />
+                    </Form.Item>
+                  </Space.Compact>
+                </Form.Item>
+                <Form.Item
+                  label="Password"
+                  name="password"
+                  rules={[
+                    { required: true, message: "Please enter your password!" },
+                    {
+                      pattern:
+                        /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+                      message:
+                        "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
+                    },
+                  ]}
+                >
+                  <Input.Password placeholder="password" />
+                </Form.Item>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit">
+                    Create My Account
+                  </Button>
+                </Form.Item>
+              </Form>
+            </ConfigProvider>
           </div>
           <div className="auth-right">
             <div className="brand-box">

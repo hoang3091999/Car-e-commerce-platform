@@ -5,9 +5,6 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <Link to={"/Login"}>login</Link>
-      <br />
-      <Link to={"/SignUp"}>SignUp</Link>
       <Footer />
     </>
   );

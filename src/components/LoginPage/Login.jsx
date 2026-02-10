@@ -1,5 +1,5 @@
-import { Form, Button, Checkbox, Input, message } from "antd";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { ConfigProvider, Form, Button, Checkbox, Input, message } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import Icon from "../../assets/icon.png";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -51,70 +51,88 @@ const LoginPage = () => {
       <div className="login-page">
         <div className="login-wrapper">
           <div className="login-left">
-            <Form
-              form={form}
-              className="login-form"
-              name="Login"
-              initialValues={{ remember: true }}
-              onFinish={onFinish}
-              autoComplete="off"
-              layout="vertical"
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorIcon: "#ffffff",
+                },
+                components: {
+                  Select: {
+                    colorBgContainer: "#0f2a3d", // nền select
+                    colorText: "#1677ff", // chữ
+                    colorTextPlaceholder: "#fff", // placeholder
+                  },
+                },
+              }}
             >
-              <Form.Item
-                className="form-item-email"
-                label="Email"
-                name="username"
-                rules={[
-                  { required: true, message: "Please enter your email!" },
-                  {
-                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "Please enter your email correctly!",
-                  },
-                ]}
+              <Form
+                form={form}
+                className="login-form"
+                name="Login"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
+                autoComplete="off"
+                layout="vertical"
               >
-                <Input className="inputEmail" placeholder="name@gmail.com" />
-              </Form.Item>
+                <Form.Item
+                  className="form-item-email"
+                  label="Email"
+                  name="username"
+                  rules={[
+                    { required: true, message: "Please enter your email!" },
+                    {
+                      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Please enter your email correctly!",
+                    },
+                  ]}
+                >
+                  <Input className="inputEmail" placeholder="name@gmail.com" />
+                </Form.Item>
 
-              <Form.Item
-                className="form-item-password"
-                label="Password"
-                name="password"
-                rules={[
-                  { required: true, message: "Please enter your password!" },
-                  {
-                    pattern:
-                      /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
-                    message:
-                      "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
-                  },
-                ]}
-              >
-                <Input.Password className="inputPass" placeholder="password" />
-              </Form.Item>
+                <Form.Item
+                  className="form-item-password"
+                  label="Password"
+                  name="password"
+                  rules={[
+                    { required: true, message: "Please enter your password!" },
+                    {
+                      pattern:
+                        /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
+                      message:
+                        "Password requires a minimum of 8 characters, including at least one uppercase letter and one special character.",
+                    },
+                  ]}
+                >
+                  <Input.Password
+                    className="inputPass"
+                    placeholder="password"
+                  />
+                </Form.Item>
 
-              <Form.Item
-                name="remember"
-                valuePropName="checked"
-                className="remember-item"
-                label={null}
-              >
-                <Checkbox>Remember me</Checkbox>
-              </Form.Item>
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  className="remember-item"
+                  label={null}
+                >
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
 
-              <Form.Item>
-                <Button type="primary" htmlType="submit">
-                  Login
-                </Button>
-              </Form.Item>
-              <Form.Item className="resister-link">
-                <p>
-                  Don't have account yet?{" "}
-                  <Link to="/SignUp" className="forgot-pass-link">
-                    Sign Up here
-                  </Link>
-                </p>
-              </Form.Item>
-            </Form>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit">
+                    Login
+                  </Button>
+                </Form.Item>
+                <Form.Item className="resister-link">
+                  <p>
+                    Don't have account yet?{" "}
+                    <Link to="/SignUp" className="forgot-pass-link">
+                      Sign Up here
+                    </Link>
+                  </p>
+                </Form.Item>
+              </Form>
+            </ConfigProvider>
           </div>
           <div className="login-right">
             <div className="brand-box">
@@ -130,6 +148,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );
