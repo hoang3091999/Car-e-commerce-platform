@@ -1,0 +1,136 @@
+.newcar-navtab {
+  background: #12232e;
+  padding: 10px 0;
+  color: white;
+  padding-left: 100px;
+}
+
+.newcar-content {
+  display: flex;
+  gap: 60px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 100px;
+  background: #0b0c10;
+}
+.left-column {
+  width: 280px;
+  min-width: 260px;
+  max-width: 300px;
+  background-color: #071620;
+  margin-bottom: 100px;
+  color: white;
+  padding: 20px;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border-radius: 10px;
+}
+.left-column .ant-input {
+  color: black !important;
+  background-color: white !important;
+}
+.right-column {
+  flex: 1;
+  margin-bottom: 40px;
+}
+.ant-pagination {
+  text-align: center !important;
+}
+
+.ant-collapse-header {
+  color: white !important;
+}
+
+.ant-collapse-arrow {
+  color: white !important;
+}
+
+.ant-checkbox-wrapper {
+  color: white !important;
+}
+
+.ant-input {
+  color: white !important;
+  background: transparent;
+}
+
+.filter-collapse {
+  background: #0f1f2f;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.filter-collapse .ant-collapse-item {
+  border: none;
+}
+
+.filter-collapse .ant-collapse-header {
+  color: #fff !important;
+  font-weight: 500;
+  padding: 12px 16px !important;
+  transition: 0.3s;
+}
+
+.filter-collapse .ant-collapse-header:hover {
+  background: #132f45;
+  border-radius: 8px;
+}
+
+.filter-collapse .ant-collapse-content {
+  background: #112b3c;
+  border: none;
+}
+
+.filter-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.filter-checkbox .ant-checkbox-wrapper {
+  color: #cbd5e1;
+}
+
+.filter-checkbox .ant-checkbox-inner {
+  background-color: transparent;
+  border-color: #3b82f6;
+}
+
+.filter-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+.filter-header h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.filter-line {
+  height: 1px;
+  background: #2c3e50;
+  margin-bottom: 20px;
+}
+.custom-search {
+  background: #0f2a3d !important;
+  border: none !important;
+  border-radius: 6px !important;
+  height: 40px;
+}
+
+.custom-search input {
+  background: transparent !important;
+  color: #cbd5e1 !important;
+}
+
+.custom-search .ant-input-prefix {
+  color: #94a3b8;
+}
+
+.custom-search::placeholder {
+  color: #94a3b8;
+}

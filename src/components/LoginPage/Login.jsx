@@ -58,9 +58,9 @@ const LoginPage = () => {
                 },
                 components: {
                   Select: {
-                    colorBgContainer: "#0f2a3d", // nền select
-                    colorText: "#1677ff", // chữ
-                    colorTextPlaceholder: "#fff", // placeholder
+                    colorBgContainer: "#0f2a3d",
+                    colorText: "#1677ff",
+                    colorTextPlaceholder: "#fff",
                   },
                 },
               }}
