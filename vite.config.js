@@ -5,3 +5,4 @@ export default defineConfig({
   plugins: [react()],
   base: '/Car-e-commerce-platform/'
 })
+1
