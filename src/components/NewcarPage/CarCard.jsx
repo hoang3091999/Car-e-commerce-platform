@@ -12,7 +12,7 @@ const CarCard = ({ car }) => {
   return (
     <div className="car-card">
       <div className="car-image">
-        <img src={`/images/${car.image}`} alt={car.name} />
+        <img src={new URL(`../../assets/images/${car.image}`, import.meta.url).href} alt={car.name} />
       </div>
 
       <div className="car-content">
